@@ -5,6 +5,9 @@ import http from 'http';
 import {connectDB} from './config/db.js';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
+import propertyRouter from './routes/properties.routes.js';
+import inquiryRouter from './routes/inquiry.routes.js';
+import wishlistRouter from './routes/wishlist.routes.js';
 const app = express();
 const PORT = 5000;
 dotenv.config();
@@ -16,6 +19,9 @@ app.use(express.json());
 //Routes
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/property",propertyRouter);
+app.use("/api/inquiry",inquiryRouter);
+app.use("/api/wishlist",wishlistRouter);
 app.get("/", (req,res) => {
     res.send("API WORKING");
 });
